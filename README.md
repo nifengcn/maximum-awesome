@@ -9,39 +9,52 @@ peace-loving hippies. Built for Mac OS X.
 * [iTerm 2](http://www.iterm2.com/)
 * [tmux](http://tmux.sourceforge.net/)
 * Awesome syntax highlighting with the [Solarized color scheme](http://ethanschoonover.com/solarized)
+* Want to know more? [Fly Vim, First Class](http://corner.squareup.com/2013/08/fly-vim-first-class.html)
 
 ### vim
 
 * `,d` brings up [NERDTree](https://github.com/scrooloose/nerdtree), a sidebar buffer for navigating and manipulating files
-* `,t` brings up [Command-T](https://github.com/wincent/Command-T), a project file filter for easily opening specific files
-* `,b` restricts Command-T to open buffers
-* `,a` starts project search with [ack.vim](https://github.com/mileszs/ack.vim) using [ag](https://github.com/ggreer/the_silver_searcher) (like ack)
+* `,t` brings up [ctrlp.vim](https://github.com/kien/ctrlp.vim), a project file filter for easily opening specific files
+* `,b` restricts ctrlp.vim to open buffers
+* `,a` starts project search with [ag.vim](https://github.com/rking/ag.vim) using [the silver searcher](https://github.com/ggreer/the_silver_searcher) (like ack, but faster)
 * `ds`/`cs` delete/change surrounding characters (e.g. `"Hey!"` + `ds"` = `Hey!`, `"Hey!"` + `cs"'` = `'Hey!'`) with [vim-surround](https://github.com/tpope/vim-surround)
 * `\\\` toggles current line comment
 * `\\` toggles visual selection comment lines
 * `vii`/`vai` visually select *in* or *around* the cursor's indent
 * `,[space]` strips trailing whitespace
-* `^]` jump to definition using ctags
+* `<C-]>` jump to definition using ctags
 * `,l` begins aligning lines on a string, usually used as `,l=` to align assignments
-* `^hjkl` move between windows, shorthand for `^w hjkl`
+* `<C-hjkl>` move between windows, shorthand for `<C-w> hjkl`
 
 ### tmux
 
-* `^a` is the prefix
+* `<C-a>` is the prefix
 * mouse scroll initiates tmux scroll
 * `prefix v` makes a vertical split
 * `prefix s` makes a horizontal split
+
+If you have three or more panes:
+* `prefix +` opens up the main-horizontal-layout
+* `prefix =` opens up the main-vertical-layout
+
+You can adjust the size of the smaller panes in `tmux.conf` by lowering or increasing the `other-pane-height` and `other-pane-width` options.
 
 ## Install
 
     rake
 
-## Troubleshoot
+## Customize
+In your home directory, Maximum Awesome creates a `.vimrc.local` file where you can customize
+Vim to your heart’s content. However, we’d love to incorporate your changes and improve Vim
+for everyone, so feel free to fork Maximum Awesome and open some pull requests!
 
-If you have trouble compiling the Command-T C extension, check mkmf.log in the
-current directory; you may need to use `xcode-select(1)`.
+## Uninstall
 
-## Contributing
+    rake uninstall
+
+Note that this won't remove everything, but your vim configuration should be reset to whatever it was before installing. Some uninstallation steps will be manual.
+
+## Contribute
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
